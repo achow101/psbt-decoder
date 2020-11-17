@@ -56,6 +56,19 @@ def deser_map(s, scope, count=None):
         else:
             psbt_type = "unknown\t"
 
+        # Deal with proprietary types
+        if rec_type == "fc":
+            prefix_size, prefix_str = read_bitcoin_vec(s_key)
+            prefix_str = str(prefix_str)
+            subtype = str(read_csuint(s_key))
+            prop_maps = psbt_types[scope]["proprietary"]
+            prop_type = "unknown"
+            if prefix_str in prop_maps:
+                prop_map = psbt_types[prefix_str]
+                if subtype in prop_map:
+                    prop_type = prop_map[subtype]
+            psbt_type += f" {prefix_str} {prop_type.upper()}")
+
         # Read the value
         value_size, value_data = read_bitcoin_vec(s)
         if is_tx:
