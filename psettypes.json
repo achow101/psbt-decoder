@@ -1,0 +1,65 @@
+{
+    "global": {
+        "0": "TX",
+        "1": "XPUB",
+        "251": "VERSION",
+        "252": "PROPRIETARY,"
+        "proprietary": {
+            "pset": {
+                "0": "SCALAR"
+            }
+        }
+    },
+    "input": {
+        "0": "NON WITNESS UTXO",
+        "1": "WITNESS UTXO",
+        "2": "PARTIAL SIG",
+        "3": "SIGHASH TYPE",
+        "4": "REDEEM SCRIPT",
+        "5": "WITNESS SCRIPT",
+        "6": "BIP 32 DERIVATION",
+        "7": "FINAL SCRIPTSIG",
+        "8": "FINAL SCRIPTWITNESS",
+        "9": "POR COMMITMENT",
+        "10": "RIPEMD160",
+        "11": "SHA256",
+        "12": "HASH160",
+        "13": "HASH256",
+        "252": "PROPRIETARY",
+        "proprietary": {
+            "pset": {
+                "0": "ISSUANCE VALUE",
+                "1": "ISSUANCE VALUE COMMITMENT",
+                "2": "ISSUANCE VALUE RANGEPROOF",
+                "3": "ISSUANCE KEYS RANGEPROOF",
+                "4": "PEG IN TX",
+                "5": "PEG IN TXOUT PROOF",
+                "6": "PEG IN GENESIS",
+                "7": "PEG IN CLAIM SCRIPT",
+                "8": "PEG IN VALUE",
+                "9": "PEG IN WITNESS",
+                "10": "ISSUANCE INFLATION KEYS",
+                "11": "ISSUANCE INFLATION KEYS COMMITMENT"
+            }
+        }
+    },
+    "output": {
+        "0": "REDEEM SCRIPT",
+        "1": "WITNESS SCRIPT",
+        "2": "BIP 32 DERIVATION",
+        "252": "PROPRIETARY",
+        "proprietary": {
+            "pset": {
+                "0": "VALUE",
+                "1": "VALUE COMMITMENT",
+                "2": "ASSET",
+                "3": "ASSET COMMITMENT",
+                "4": "VALUE RANGEPROOF",
+                "5": "ASSET SURJECTION PROOF",
+                "6": "BLINDING PUBKEY",
+                "7": "ECDH PUBKEY",
+                "8": "BLINDER INDEX"
+            }
+        }
+    }
+}
