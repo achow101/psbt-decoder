@@ -10,7 +10,7 @@ from io import BytesIO
 
 parser = argparse.ArgumentParser(description="Decode a PSBT")
 parser.add_argument("--hex", action="store_true", help="psbt is in hex, not base64")
-parser.add_argument("--psbt-types", help="JSON file that contains all of the types in the PSBT")
+parser.add_argument("--psbt-types", help="JSON file that contains all of the types in the PSBT", default="psbttypes.json")
 parser.add_argument("psbt", help="psbt to decode")
 
 args = parser.parse_args()
@@ -34,7 +34,7 @@ def read_bitcoin_vec(s):
 
 def deser_map(s, scope, count=None):
     c_str = "" if count is None else f"{count} "
-    print(f"NEW {scope.upper()} {c_str}MAP")
+    print(f"{scope.upper()} {c_str}MAP")
     while True:
         # Read the key
         key_size, key_data = read_bitcoin_vec(s)
@@ -45,14 +45,14 @@ def deser_map(s, scope, count=None):
 
         # Read the type
         s_key = BytesIO(key_data)
-        rec_type = read_csuint(s_key)
+        rec_type = str(read_csuint(s_key))
         is_tx = False
-        if rec_type in psbt_types:
-            psbt_type = psbt_types[scope][rec_type]
-        elif rec_type == 0:
+        if rec_type == "0":
             # Global is always the raw tx. We need to get input and output counts from here
             is_tx = True
             psbt_type = "TX"
+        elif rec_type in psbt_types[scope]:
+            psbt_type = psbt_types[scope][rec_type]
         else:
             psbt_type = "unknown"
 

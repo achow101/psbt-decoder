@@ -1,0 +1,31 @@
+{
+    "global": {
+        "0": "TX",
+        "1": "XPUB",
+        "251": "VERSION",
+        "252": "PROPRIETARY"
+    },
+    "input": {
+        "0": "NON WITNESS UTXO",
+        "1": "WITNESS UTXO",
+        "2": "PARTIAL SIG",
+        "3": "SIGHASH TYPE",
+        "4": "REDEEM SCRIPT",
+        "5": "WITNESS SCRIPT",
+        "6": "BIP 32 DERIVATION",
+        "7": "FINAL SCRIPTSIG",
+        "8": "FINAL SCRIPTWITNESS",
+        "9": "POR COMMITMENT",
+        "10": "RIPEMD160",
+        "11": "SHA256",
+        "12": "HASH160",
+        "13": "HASH256",
+        "252": "PROPRIETARY"
+    },
+    "output": {
+        "0": "REDEEM SCRIPT",
+        "1": "WITNESS SCRIPT",
+        "2": "BIP 32 DERIVATION",
+        "252": "PROPRIETARY"
+    }
+}
