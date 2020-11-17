@@ -50,11 +50,11 @@ def deser_map(s, scope, count=None):
         if rec_type == "0":
             # Global is always the raw tx. We need to get input and output counts from here
             is_tx = True
-            psbt_type = "TX"
+            psbt_type = "TX\t"
         elif rec_type in psbt_types[scope]:
             psbt_type = psbt_types[scope][rec_type]
         else:
-            psbt_type = "unknown"
+            psbt_type = "unknown\t"
 
         # Read the value
         value_size, value_data = read_bitcoin_vec(s)
@@ -75,7 +75,7 @@ def deser_map(s, scope, count=None):
             num_outputs = read_csuint(s_val)
 
         # Print these out
-        print(f"RECORD:\t\t{psbt_type.upper()}\t\t{key_size}\t{key_data.hex()}\t{value_size}\t{value_data.hex()}")
+        print(f"RECORD:\t\t{psbt_type.upper()}\t{key_size}\t{key_data.hex()}\t{value_size}\t{value_data.hex()}")
 
 if args.hex:
     # Hex decode
