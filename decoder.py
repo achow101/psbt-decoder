@@ -11,6 +11,7 @@ from io import BytesIO
 parser = argparse.ArgumentParser(description="Decode a PSBT")
 parser.add_argument("--hex", action="store_true", help="psbt is in hex, not base64")
 parser.add_argument("--psbt-types", help="JSON file that contains all of the types in the PSBT")
+parser.add_argument("--pset", action="store_true", help="The PSBT is actually for Elements, it's a PSET")
 parser.add_argument("psbt", help="psbt to decode")
 
 args = parser.parse_args()
@@ -99,6 +100,8 @@ else:
 
 if args.psbt_types is None:
     types_file = "psbttypes.json"
+    if args.pset:
+        types_file = "psettypes.json"
 
 # Get the PSBT types
 psbt_types = {}
