@@ -55,24 +55,24 @@ def deser_map(s, scope, count=None):
         s_key = BytesIO(key_data)
         rec_type = str(read_csuint(s_key))
         is_tx = False
-        if rec_type == "0":
+        if rec_type == "0" and scope == "global":
             # Global is always the raw tx. We need to get input and output counts from here
             is_tx = True
             psbt_type = "TX\t"
         elif rec_type in psbt_types[scope]:
-            psbt_type = psbt_types[scope][rec_type]
+            psbt_type = psbt_types[scope][rec_type].upper()
         else:
-            psbt_type = "unknown\t"
+            psbt_type = "UNKNOWN\t"
 
         # Deal with proprietary types
-        if rec_type == "fc":
+        if rec_type == "252":
             prefix_size, prefix_str = read_bitcoin_vec(s_key)
-            prefix_str = str(prefix_str)
+            prefix_str = prefix_str.decode()
             subtype = str(read_csuint(s_key))
             prop_maps = psbt_types[scope]["proprietary"]
             prop_type = "unknown"
             if prefix_str in prop_maps:
-                prop_map = psbt_types[prefix_str]
+                prop_map = prop_maps[prefix_str]
                 if subtype in prop_map:
                     prop_type = prop_map[subtype]
             psbt_type += f" {prefix_str} {prop_type.upper()}"
@@ -82,6 +82,11 @@ def deser_map(s, scope, count=None):
         if is_tx:
             s_val = BytesIO(value_data)
             s_val.read(4)  # TX Version
+
+            if args.pset:
+                # Elements always has the witness marker and flag here, so skip them
+                s_val.read(1)
+
             global num_inputs
             global num_outputs
             num_inputs = read_csuint(s_val)
@@ -97,7 +102,7 @@ def deser_map(s, scope, count=None):
 
         # Print these out
         print(
-            f"RECORD:\t\t{psbt_type.upper()}\t{key_size}\t{key_data.hex()}\t{value_size}\t{value_data.hex()}"
+            f"RECORD:\t\t{psbt_type}\t{key_size}\t{key_data.hex()}\t{value_size}\t{value_data.hex()}"
         )
 
 
@@ -108,6 +113,7 @@ else:
     # Base64 decode
     psbt_bytes = b64decode(args.psbt)
 
+types_file = args.psbt_types
 if args.psbt_types is None:
     types_file = "psbttypes.json"
     if args.pset:
