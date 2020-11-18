@@ -3,7 +3,7 @@
         "0": "TX",
         "1": "XPUB",
         "251": "VERSION",
-        "252": "PROPRIETARY,"
+        "252": "PROPRIETARY",
         "proprietary": {
             "pset": {
                 "0": "SCALAR"

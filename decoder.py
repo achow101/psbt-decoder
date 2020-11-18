@@ -67,7 +67,7 @@ def deser_map(s, scope, count=None):
                 prop_map = psbt_types[prefix_str]
                 if subtype in prop_map:
                     prop_type = prop_map[subtype]
-            psbt_type += f" {prefix_str} {prop_type.upper()}")
+            psbt_type += f" {prefix_str} {prop_type.upper()}"
 
         # Read the value
         value_size, value_data = read_bitcoin_vec(s)
