@@ -2,6 +2,11 @@
     "global": {
         "0": "TX",
         "1": "XPUB",
+        "2": "TX VERSION",
+        "3": "FALLBACK LOCKTIME",
+        "4": "INPUT COUNT",
+        "5": "OUTPUT COUNT",
+        "6": "TX MODIFIABLE FLAGS",
         "251": "VERSION",
         "252": "PROPRIETARY"
     },
@@ -20,12 +25,19 @@
         "11": "SHA256",
         "12": "HASH160",
         "13": "HASH256",
+        "14": "PREVIOUS TXID",
+        "15": "OUTPUT INDEX",
+        "16": "SEQUENCE",
+        "17": "REQUIRED TIME LOCKTIME",
+        "18": "REQUIRED HEIGHT LOCKTIME",
         "252": "PROPRIETARY"
     },
     "output": {
         "0": "REDEEM SCRIPT",
         "1": "WITNESS SCRIPT",
         "2": "BIP 32 DERIVATION",
+        "3": "OUTPUT AMOUNT",
+        "4": "OUTPUT SCRIPT",
         "252": "PROPRIETARY"
     }
 }

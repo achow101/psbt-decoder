@@ -100,6 +100,12 @@ def deser_map(s, scope, count=None):
 
             num_outputs = read_csuint(s_val)
 
+        # The input and output counts may be explicit in globals
+        if rec_type == "4" and scope == "global":
+            num_inputs = read_csuint(BytesIO(value_data))
+        if rec_type == "5" and scope == "global":
+            num_outputs = read_csuint(BytesIO(value_data))
+
         # Print these out
         print(
             f"RECORD:\t\t{psbt_type}\t{key_size}\t{key_data.hex()}\t{value_size}\t{value_data.hex()}"
