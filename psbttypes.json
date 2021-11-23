@@ -30,6 +30,12 @@
         "16": "SEQUENCE",
         "17": "REQUIRED TIME LOCKTIME",
         "18": "REQUIRED HEIGHT LOCKTIME",
+        "19": "TAP KEY SIG",
+        "20": "TAP SCRIPT SIG",
+        "21": "TAP LEAF SCRIPT",
+        "22": "TAP BIP 32 DERIVATION",
+        "23": "TAP INTERNAL KEY",
+        "24": "TAP MERKLE ROOT",
         "252": "PROPRIETARY"
     },
     "output": {
@@ -38,6 +44,9 @@
         "2": "BIP 32 DERIVATION",
         "3": "OUTPUT AMOUNT",
         "4": "OUTPUT SCRIPT",
+        "5": "TAP INTERNAL KEY",
+        "6": "TAP TREE",
+        "7": "TAP BIP 32 DERIVATION",
         "252": "PROPRIETARY"
     }
 }
