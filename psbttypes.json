@@ -7,6 +7,8 @@
         "4": "INPUT COUNT",
         "5": "OUTPUT COUNT",
         "6": "TX MODIFIABLE FLAGS",
+        "7": "SP ECDH SHARE",
+        "8": "SP DLEQ",
         "251": "VERSION",
         "252": "PROPRIETARY"
     },
@@ -36,6 +38,11 @@
         "22": "TAP BIP 32 DERIVATION",
         "23": "TAP INTERNAL KEY",
         "24": "TAP MERKLE ROOT",
+        "26": "MUSIG2 PARTICIPANT PUBKEYS",
+        "27": "MUSIG2 PUBNONCE",
+        "28": "MUSIG2 PARTIAL SIG",
+        "29": "SP ECDH SHARE",
+        "30": "SP DLEQ",
         "252": "PROPRIETARY"
     },
     "output": {
@@ -47,6 +54,10 @@
         "5": "TAP INTERNAL KEY",
         "6": "TAP TREE",
         "7": "TAP BIP 32 DERIVATION",
+        "8": "MUSIG2 PARTICIPANT PUBKEYS",
+        "9": "SP V0 INFO",
+        "10": "SP V0 LBAEL",
+        "53": "DNSSEC PROOF",
         "252": "PROPRIETARY"
     }
 }
